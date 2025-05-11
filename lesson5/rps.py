@@ -1,5 +1,18 @@
 import sys
 import random
+from enum import Enum
+
+class RPS(Enum):
+    ROCK = 1
+    PAPER = 2
+    SCISSORS = 3
+
+# print(RPS(1))
+# print(RPS.PAPER)
+# print(RPS['ROCK'])
+# print(RPS.ROCK.name)
+# print(RPS.ROCK.value)
+# sys.exit("Exiting the program")
 
 # value = input('Please enter a value:\n')
 
@@ -10,7 +23,7 @@ playerchoice = input("Enter... \n1 for Rock, \n2 for Paper, \n3 for Scissors:\n\
 
 player = int(playerchoice)
 
-if player < 1 | player > 3:
+if player < 1 or player > 3:
     sys.exit("You must enter a number between 1 and 3")
 
 computerchoice = random.choice("123")
@@ -19,8 +32,8 @@ computer = int(computerchoice)
 
 print("")
 
-print("You chose: " + playerchoice + ".\n")
-print("Computer chose: " + computerchoice)
+print("You chose: " + str(RPS(player).name) + ".\n")
+print("Computer chose: " + str(RPS(computer).name))
 
 print("")
 
